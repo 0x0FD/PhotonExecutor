@@ -3,7 +3,6 @@
 **Photon Executor** is an open-source script executor powered by **Xeno**, designed to be fast, lightweight, and simple to use.
 
 🚀 **Fast**  
-🧠 **Clean UI (WinForms + WebView2)**  
 ⚙️ **Native Xeno backend**
 
 ---
