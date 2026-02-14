@@ -1,4 +1,4 @@
-# γhoton Executor ⚡
+# Photon Executor ⚡
 
 **Photon Executor** is an open-source script executor powered by **Xeno**, designed to be fast, lightweight, and simple to use.
 
@@ -23,11 +23,3 @@
 - Windows 10 / 11 (x64)
 - .NET 6.0+ Runtime
 - Microsoft Edge WebView2 Runtime
-
----
-
-## 🛠️ Build Instructions
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/FXSploit/PhotonExecutor.git
