@@ -26,4 +26,4 @@
 ---
 ## 🛡️ Virus Total Results
 ```
-https://www.virustotal.com/gui/file/1bd2e80fbea321abf5ae7c6303c05ce238fe7016266f5f1db397bc60fc19c76d
+https://www.virustotal.com/gui/file/578d72f80ff625e417758418af9f7081a30641e7a1cad020ed55339f1fc53489
