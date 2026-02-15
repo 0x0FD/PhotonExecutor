@@ -1,3 +1,4 @@
+# finnaly new c# bootstrapper
 # IM TIRED OF THAT SHITTY PYTHON FILE TO EXE CONVERTERS AND THAT SHITTY ANTI VIRUS APPS
 # if you dunno coding i explained every thing
 # HERE, SOURCE CODE:
