@@ -4,7 +4,6 @@
 
 🚀 **Fast**  
 ⚙️ **Native Xeno backend**
-
 ---
 
 ## ✨ Features
@@ -23,3 +22,8 @@
 - Windows 10 / 11 (x64)
 - .NET 6.0+ Runtime
 - Microsoft Edge WebView2 Runtime
+
+---
+## 🛡️ Virus Total Results
+```
+https://www.virustotal.com/gui/file/1bd2e80fbea321abf5ae7c6303c05ce238fe7016266f5f1db397bc60fc19c76d
