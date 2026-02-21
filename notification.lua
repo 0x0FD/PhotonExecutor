@@ -4,3 +4,4 @@ StarterGui:SetCore("SendNotification", {
     Text = "Successfully attached to the game.",
     Duration = 5
 })
+print("photon exec v0.3")
