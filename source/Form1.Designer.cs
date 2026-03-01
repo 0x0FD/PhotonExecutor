@@ -15,6 +15,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             namelbl = new Label();
             attachbtn = new Button();
@@ -39,6 +40,7 @@
             webView21.DefaultBackgroundColor = Color.FromArgb(15, 15, 15);
             webView21.Dock = DockStyle.Fill;
             webView21.Location = new Point(0, 51);
+            webView21.Margin = new Padding(3, 0, 3, 0);
             webView21.Name = "webView21";
             webView21.Size = new Size(880, 430);
             webView21.TabIndex = 0;
@@ -48,24 +50,26 @@
             // 
             namelbl.Dock = DockStyle.Fill;
             namelbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            namelbl.ForeColor = Color.FromArgb(240, 240, 240);
+            namelbl.ForeColor = Color.FromArgb(255, 255, 128);
             namelbl.Location = new Point(0, 0);
+            namelbl.Margin = new Padding(3, 0, 80, 0);
             namelbl.Name = "namelbl";
-            namelbl.Size = new Size(880, 48);
+            namelbl.Size = new Size(880, 50);
             namelbl.TabIndex = 0;
-            namelbl.Text = "PHOTON";
-            namelbl.TextAlign = ContentAlignment.MiddleCenter;
+            namelbl.Text = "Photon Executor";
+            namelbl.TextAlign = ContentAlignment.MiddleLeft;
+            namelbl.Click += namelbl_Click;
             // 
             // attachbtn
             // 
             attachbtn.BackColor = Color.Transparent;
             attachbtn.Cursor = Cursors.Hand;
-            attachbtn.FlatAppearance.BorderColor = Color.FromArgb(180, 148, 0);
+            attachbtn.FlatAppearance.BorderColor = Color.FromArgb(255, 253, 120);
             attachbtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 255, 214, 0);
             attachbtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 255, 214, 0);
             attachbtn.FlatStyle = FlatStyle.Flat;
             attachbtn.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            attachbtn.ForeColor = Color.FromArgb(255, 214, 0);
+            attachbtn.ForeColor = Color.FromArgb(255, 255, 128);
             attachbtn.Location = new Point(146, 13);
             attachbtn.Name = "attachbtn";
             attachbtn.Size = new Size(118, 36);
@@ -76,7 +80,7 @@
             // 
             // executebtn
             // 
-            executebtn.BackColor = Color.FromArgb(255, 214, 0);
+            executebtn.BackColor = Color.FromArgb(255, 255, 128);
             executebtn.Cursor = Cursors.Hand;
             executebtn.FlatAppearance.BorderSize = 0;
             executebtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(210, 175, 0);
@@ -108,7 +112,7 @@
             // logoIcon
             // 
             logoIcon.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            logoIcon.ForeColor = Color.FromArgb(255, 214, 0);
+            logoIcon.ForeColor = Color.FromArgb(255, 253, 120);
             logoIcon.Location = new Point(18, 0);
             logoIcon.Name = "logoIcon";
             logoIcon.Size = new Size(38, 50);
@@ -129,12 +133,11 @@
             // 
             // accentLine
             // 
-            accentLine.BackColor = Color.FromArgb(255, 214, 0);
-            accentLine.Dock = DockStyle.Bottom;
-            accentLine.Location = new Point(0, 48);
+            accentLine.BackColor = Color.FromArgb(255, 253, 120);
+            accentLine.Location = new Point(0, 47);
             accentLine.Name = "accentLine";
-            accentLine.Size = new Size(880, 2);
-            accentLine.TabIndex = 4;
+            accentLine.Size = new Size(880, 10);
+            accentLine.TabIndex = 5;
             // 
             // bottomBar
             // 
@@ -177,7 +180,7 @@
             divider.Size = new Size(880, 1);
             divider.TabIndex = 1;
             // 
-            // Form1
+            // PhotonExecutor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -188,8 +191,9 @@
             Controls.Add(topBar);
             Controls.Add(bottomBar);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "PhotonExecutor";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Photon";
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
@@ -211,7 +215,7 @@
         private Panel bottomBar;
         private Panel statusDot;
         private Panel divider;
-        private Panel accentLine;
         private Label statuslbl;
+        private Panel accentLine;
     }
 }

@@ -15,8 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\StarwayT3\StarwayT3\bin\x64\Release\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="XenoUI">
-      <HintPath>..\..\StarwayT3\StarwayT3\bin\x64\Release\XenoUI.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\XenoUI.dll</HintPath>
     </Reference>
   </ItemGroup>
 

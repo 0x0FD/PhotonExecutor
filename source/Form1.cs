@@ -3,12 +3,23 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using XenoUI;
-// Xeno is safe but not the ones that you find on internet ...
-// i mean API's safe but others not 
+
 namespace PhotonFinalFr
 {
     public partial class Form1 : Form
     {
+
+
+        private const int SW_MAXIMIZE = 3;
+        private const int SW_MINIMIZE = 6;
+
+        [DllImport("user32.dll", EntryPoint = "FindWindow")]
+        public static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
 
         [DllImport("Xeno.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
         private static extern IntPtr GetClients();
@@ -59,20 +70,27 @@ namespace PhotonFinalFr
 
             return pids;
         }
-        private void ExecuteScriptOnClients(string script)
+        private void ExecuteScriptOnClients(string script, bool warns)
         {
             if (string.IsNullOrWhiteSpace(script))
             {
-                MessageBox.Show("Script is empty.", "Empty Script", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (!warns)
+                {
+                    MessageBox.Show("Script is empty.", "Empty Script", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
 
             var clientPIDs = GetReadyClientPIDs();
 
             if (clientPIDs.Count == 0)
             {
-                MessageBox.Show("No ready clients found.\n\nMake sure you've pressed Attach and waited for injection to complete.",
+                if (!warns )
+                {
+                    MessageBox.Show("No ready clients found.\n\nMake sure you've pressed Attach and waited for injection to complete.",
                     "No Ready Clients", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
                 return;
             }
 
@@ -82,8 +100,12 @@ namespace PhotonFinalFr
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Script execution failed:\n{ex.Message}", "Execution Error",
+                if (!warns)
+                {
+                    MessageBox.Show($"Script execution failed:\n{ex.Message}", "Execution Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 
@@ -114,17 +136,26 @@ namespace PhotonFinalFr
             string script = "editor.getValue();";
             string result = await webView21.CoreWebView2.ExecuteScriptAsync(script);
             string finalize = Regex.Unescape(result.Trim('"'));
-            ExecuteScriptOnClients(finalize);
+            ExecuteScriptOnClients(finalize, false);
         }
 
         private async void attachbtn_Click(object sender, EventArgs e)
         {
+            IntPtr hwnd = FindWindowByCaption(IntPtr.Zero, "Roblox");
+            ShowWindow(hwnd, SW_MINIMIZE);
             Attach();
-            Thread.Sleep(200);
+            ShowWindow(hwnd, SW_MINIMIZE);
+            Thread.Sleep(20);
+            ShowWindow(hwnd, SW_MAXIMIZE);
             Attach();
-            Thread.Sleep(200);
-            Attach();
-            ExecuteScriptOnClients("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/FXSploit/PhotonExecutor/refs/heads/main/notification.lua\"))()");
+            ShowWindow(hwnd, SW_MAXIMIZE);
+            Thread.Sleep(20);
+            ExecuteScriptOnClients("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/FXSploit/PhotonExecutor/refs/heads/main/notification.lua\"))()", true);
+        }
+
+        private void namelbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
