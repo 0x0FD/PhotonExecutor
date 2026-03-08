@@ -155,7 +155,7 @@
             // statusDot
             // 
             statusDot.BackColor = Color.FromArgb(255, 35, 35);
-            statusDot.Location = new Point(776, 26);
+            statusDot.Location = new Point(831, 26);
             statusDot.Name = "statusDot";
             statusDot.Size = new Size(8, 8);
             statusDot.TabIndex = 2;
@@ -165,11 +165,11 @@
             statuslbl.AutoSize = true;
             statuslbl.Font = new Font("Segoe UI", 8F);
             statuslbl.ForeColor = Color.FromArgb(110, 110, 110);
-            statuslbl.Location = new Point(790, 21);
+            statuslbl.Location = new Point(810, 21);
             statuslbl.Name = "statuslbl";
-            statuslbl.Size = new Size(38, 13);
+            statuslbl.Size = new Size(15, 13);
             statuslbl.TabIndex = 3;
-            statuslbl.Text = "Ready";
+            statuslbl.Text = "~";
             // 
             // divider
             // 
@@ -180,7 +180,7 @@
             divider.Size = new Size(880, 1);
             divider.TabIndex = 1;
             // 
-            // PhotonExecutor
+            // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -193,7 +193,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            Name = "PhotonExecutor";
+            Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Photon";
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();

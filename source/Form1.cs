@@ -30,8 +30,7 @@ namespace PhotonFinalFr
         [DllImport("Xeno.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern void Attach();
 
-        [DllImport("Xeno.dll", CallingConvention = CallingConvention.StdCall)]
-        public static extern void is_attached();
+
 
         private List<int> GetReadyClientPIDs()
         {
@@ -141,16 +140,20 @@ namespace PhotonFinalFr
 
         private async void attachbtn_Click(object sender, EventArgs e)
         {
+            statuslbl.Text = "attaching ...";
+            if (GetClients() == IntPtr.Zero)
+            {
             IntPtr hwnd = FindWindowByCaption(IntPtr.Zero, "Roblox");
-            ShowWindow(hwnd, SW_MINIMIZE);
-            Attach();
-            ShowWindow(hwnd, SW_MINIMIZE);
-            Thread.Sleep(20);
-            ShowWindow(hwnd, SW_MAXIMIZE);
-            Attach();
-            ShowWindow(hwnd, SW_MAXIMIZE);
-            Thread.Sleep(20);
+                while (GetClients() == IntPtr.Zero)
+                {
+                    ShowWindow(hwnd, SW_MAXIMIZE);
+                    Attach();
+                    ShowWindow(hwnd, SW_MINIMIZE);
+                }
+            }
+            statuslbl.Text = "Attached";
             ExecuteScriptOnClients("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/FXSploit/PhotonExecutor/refs/heads/main/notification.lua\"))()", true);
+
         }
 
         private void namelbl_Click(object sender, EventArgs e)
