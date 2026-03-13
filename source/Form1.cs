@@ -1,3 +1,4 @@
+// ill add v1.0 source later im too lazy rn
 using Newtonsoft.Json;
 using System.Runtime.InteropServices;
 using System.Text;
